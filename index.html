@@ -3,10 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LASER DODGE: ORBIT</title>
+    <title>ARCADE HUB</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@19",
+          "react/": "https://esm.sh/react@19/",
+          "react-dom": "https://esm.sh/react-dom@19",
+          "react-dom/": "https://esm.sh/react-dom@19/",
+          "react-dom/client": "https://esm.sh/react-dom@19/client"
+        }
+      }
+    </script>
+    <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
   </head>
   <body class="bg-slate-950 text-white overflow-hidden select-none">
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+
+    <script type="text/babel" data-type="module">
+      import React from "react";
+      import ReactDOM from "react-dom/client";
+      import App from "./src/App.tsx";
+
+      const rootEl = document.getElementById("root");
+      if (rootEl) {
+        ReactDOM.createRoot(rootEl).render(
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        );
+      }
+    </script>
   </body>
 </html>
